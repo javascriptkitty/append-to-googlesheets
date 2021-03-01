@@ -10,10 +10,14 @@ export class UsersController extends BaseHttpController {
     super();
   }
 
-  @httpPost("/save")
+  @httpPost("/Save")
   private async save(@request() req: express.Request) {
-    console.log(req);
-    const user = await this.googleService.appendToSpreadsheet(req.body);
+    const user = await this.googleService.appendToSpreadsheet(req.body, "Sheet1");
+    return this.json(user);
+  }
+  @httpPost("/OrderPayed")
+  private async orderPayed(@request() req: express.Request) {
+    const user = await this.googleService.appendToSpreadsheet(req.body, "Sheet2");
     return this.json(user);
   }
 }

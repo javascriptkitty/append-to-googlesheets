@@ -25,6 +25,7 @@ export class App {
     server.setErrorConfig(app => {
       app.use((err: any, req: express.Request, res: express.Response, _next: express.NextFunction) => {
         console.log(err);
+        debugger;
         res.status(err.status || 500).json({
           message: err.message,
         });
@@ -38,7 +39,7 @@ export class App {
     });
 
     const port: number = parseInt(process.env.PORT!) || 3000;
-    const host: string = process.env.HOST || "0.0.0.0";
+    const host: string = process.env.HOST || "localhost";
 
     app.listen(port, host, () => {
       console.log(`App listening at http://${host}:${port}`);
