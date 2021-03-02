@@ -5,7 +5,7 @@ import "reflect-metadata";
 import { InversifyExpressServer } from "inversify-express-utils";
 dotenv.config();
 import { container } from "./inversify.config";
-import "./controllers/users";
+import "./controllers/contacts";
 
 export class App {
   async init(): Promise<void> {
